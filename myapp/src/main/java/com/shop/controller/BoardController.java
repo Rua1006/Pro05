@@ -10,4 +10,6 @@ public class BoardController {
     public String test1() {
         return "Hellow Spring Boot";
     }
+
+
 }
