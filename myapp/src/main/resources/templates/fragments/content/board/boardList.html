@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<div class="text-center">
+  <table>
+    <thead>
+    <tr>
+      <th width="80">No</th>
+      <th width="720">Title</th>
+      <th width="200">ResDate</th>
+      <th width="200">Visited</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:forEach items="@{boardList }" var="board" varStatus="status">
+      <tr>
+        <td>@{status.count }</td>
+        <td><a href="/board/detail.do?no=@{board.no }">@{board.title }</a></td>
+        <td>@{board.resDate }</td>
+        <td>@{board.visited }</td>
+      </tr>
+    </th:forEach>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
