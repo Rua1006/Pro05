@@ -1,6 +1,6 @@
-package com.shop.dao;
+package com.shop.myapp.dao;
 
-import com.shop.dto.BoardDTO;
+import com.shop.myapp.dto.BoardDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BoradDAOImpl implements BoardDAO {
+public class BoardDAOImpl implements BoardDAO{
 
     @Autowired
     SqlSession sqlSession;

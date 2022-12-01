@@ -1,7 +1,6 @@
-package com.shop.service;
+package com.shop.myapp.service;
 
-
-import com.shop.dto.BoardDTO;
+import com.shop.myapp.dto.BoardDTO;
 
 import java.util.List;
 

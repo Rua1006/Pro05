@@ -1,4 +1,4 @@
-package com.shop.dto;
+package com.shop.myapp.dto;
 
 import lombok.Data;
 
@@ -9,4 +9,5 @@ public class BoardDTO {
     private String content;
     private String author;
     private String resDate;
+
 }

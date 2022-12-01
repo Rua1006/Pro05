@@ -13,4 +13,11 @@ spring:
     url: jdbc:mysql://localhost:3306/shop?serverTimezone=Asia/Seoul
     username: root
     password: a1234
+  jpa:
+    open-in-view: false
+
+mybatis:
+  config: mybatis/mybatis.config
+  mapper-locations: mybatis/mappers/*.xml
+
 

@@ -1,14 +1,14 @@
-package com.shop.service;
+package com.shop.myapp.service;
 
-import com.shop.dao.BoardDAO;
-import com.shop.dto.BoardDTO;
+import com.shop.myapp.dao.BoardDAO;
+import com.shop.myapp.dto.BoardDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class BoardServiceImpl implements BoardService {
+public class BoardServiceImpl implements BoardService{
 
     @Autowired
     BoardDAO boardDAO;
