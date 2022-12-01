@@ -8,25 +8,23 @@
     <title>반다이몰/네비</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback}">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="../../../static/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../../static/dist/css/adminlte.min.css">
-
+    <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
     <style>
     .container{
         margin: 0;
     }
-</style>
-
+    </style>
 </head>
 <body>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-        <a href="../../index.html" class="navbar-brand">
-            <img src="../../../static/dist/img/bandi_logo.png" alt="logo" class="brand-image" style="opacity: .8" width="100px" height="auto">
+        <a th:href="@{../templates/index.html}" class="navbar-brand">
+            <img th:src="@{/dist/img/bandi_logo.png}" alt="logo" class="brand-image" style="opacity: .8" width="100px" height="auto">
             <span class="brand-text">반다이몰</span>
         </a>
         <div class="collapse navbar-collapse order-1" id="navbarCollapse">
@@ -100,12 +98,12 @@
 </nav>
 <!-- /.navbar -->
 <!-- jQuery -->
-<script src="../../../static/plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- AdminLTE App -->
-<script src="../../../static/dist/js/adminlte.min.js"></script>
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../../static/dist/js/demo.js"></script>
+<script th:src="@{/dist/js/demo.js}"></script>
 </body>
 </html>

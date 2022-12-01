@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/board/*")
+@RequestMapping("/board/")
 public class BoardController {
 
     @Autowired
@@ -22,6 +22,6 @@ public class BoardController {
     public String getBoardList(Model model) throws Exception{
         List<BoardDTO> boardList = boardService.boardList();
         model.addAttribute("boardList", boardList);
-        return "board/boardList";
+        return "/board/boardList";
     }
 }
