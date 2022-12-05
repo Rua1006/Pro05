@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body class="hold-transition sidebar-mini layout-fixed">
+<header class="header">
+    <th:block th:include="fragments/common/navbar"></th:block>
+    <th:block th:include="fragments/common/sidebar"></th:block>
+
+    <style>
+        table{
+            margin: 0 auto;
+        }
+    </style>
+</header>
+<div class="text-center">
+    <h2>공지사항 자세히보기</h2>
+    <table>
+        <tbody>
+        <tr>
+            <th>글번호</th>
+            <td th:text="${dto.no}"></td>
+        </tr>
+        <tr>
+            <th>글제목</th>
+            <td th:text="${dto.title}"></td>
+        </tr>
+        <tr>
+            <th>글내용</th>
+            <td th:text="${dto.content}"></td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td th:text="${dto.author}"></td>
+        </tr>
+        <tr>
+            <th>작성일</th>
+            <td th:text="${dto.resDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="button-group">
+        <a class="button" th:href="@{/board/edit(no=${dto.no})}">글 수정하기</a>
+        <a class="button" th:href="@{/board/delete(no=${dto.no})}">글 삭제하기</a>
+        <a class="button" th:href="@{/board/list}">글 목록으로이동</a>
+    </div>
+</div>
+</body>
+<footer class="footer">
+    <th:block th:include="fragments/common/footer"></th:block>
+</footer>
+</html>

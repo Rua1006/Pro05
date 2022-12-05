@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body class="hold-transition sidebar-mini layout-fixed">
+<header class="header">
+  <th:block th:include="fragments/common/navbar"></th:block>
+  <th:block th:include="fragments/common/sidebar"></th:block>
+</header>
+<div class="text-center">
+  <table>
+    <thead>
+    <tr>
+      <th width="80">No</th>
+      <th width="720">Title</th>
+      <th width="200">ResDate</th>
+      <!--<th width="200">Visited</th>-->
+    </tr>
+    </thead>
+    <tbody>
+      <tr th:each="board : ${boardList}">
+        <td th:text="${board.no }"></td>
+        <td>
+          <a th:href="@{/board/detail(no=${board.no })}" th:text="${board.title }"></a>
+        </td>
+        <td th:text="${board.resDate }"></td>
+        <!--<td th:text="${board.visited }"></td>-->
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+<footer class="footer">
+  <th:block th:include="fragments/common/footer"></th:block>
+</footer>
+</html>
