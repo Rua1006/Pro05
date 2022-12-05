@@ -17,4 +17,9 @@ public class BoardServiceImpl implements BoardService{
     public List<BoardDTO> boardList() throws Exception {
         return boardDAO.boardList();
     }
+
+    @Override
+    public BoardDTO getBoard(int no) throws Exception {
+        return boardDAO.getBoard(no);
+    }
 }

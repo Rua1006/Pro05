@@ -4,4 +4,7 @@
     <select id="boardList" resultType="com.shop.myapp.dto.BoardDTO">
         select * from board order by resDate desc
     </select>
+    <select id="getBoard" resultType="com.shop.myapp.dto.BoardDTO">
+        select * from board where no=#{no}
+    </select>
 </mapper>

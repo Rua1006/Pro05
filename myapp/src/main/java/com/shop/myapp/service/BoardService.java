@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BoardService {
     public List<BoardDTO> boardList() throws Exception;
+    public BoardDTO getBoard(int no) throws Exception;
 }
