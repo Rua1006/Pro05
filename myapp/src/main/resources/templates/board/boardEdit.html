@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body class="hold-transition sidebar-mini layout-fixed">
+<header class="header">
+    <th:block th:include="fragments/common/navbar"></th:block>
+    <th:block th:include="fragments/common/sidebar"></th:block>
+    <style>
+        table{
+            margin: 0 auto;
+        }
+    </style>
+</header>
+<div class="text-center">
+    <h2>공지사항 수정하기</h2>
+    <form th:action="@{/board/edit}" method="post" name="edit" id="edit">
+        <table>
+            <tbody>
+            <tr>
+                <th>글 제목</th>
+                <td>
+                    <input type="hidden" name="no" id="no" th:value="${dto.no}" >
+                    <input type="text" name="title" id="title" placeholder="제목 입력" th:value="${dto.title }" maxlength="90" required>
+                </td>
+            </tr>
+            <tr>
+                <th>글 내용</th>
+                <td>
+                    <textarea placeholder="내용입력" name="content" id="content" rows="8" cols="10" maxlength="800" required th:value="${dto.content }"></textarea>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <div class="button-group">
+        <input type="submit" class="submit success button" value="등록">
+        <a class="button" th:href="@{/board/list}">글 목록</a>
+    </div>
+</div>
+</body>
+<footer class="footer">
+    <th:block th:include="fragments/common/footer"></th:block>
+</footer>
+</html>

@@ -5,8 +5,8 @@
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="myapp.myapp.main" target="1.8" />
-      <module name="myapp.myapp.test" target="1.8" />
+      <module name="myapp.myapp.main~1" target="1.8" />
+      <module name="myapp.myapp.test~1" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

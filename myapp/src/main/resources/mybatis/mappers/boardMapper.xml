@@ -7,4 +7,19 @@
     <select id="getBoard" resultType="com.shop.myapp.dto.BoardDTO">
         select * from board where no=#{no}
     </select>
+    <select id="totalCount" resultType="integer">
+        select count(*) from board
+    </select>
+    <insert id="boardInsert">
+        insert into board values((select nvl(max(no), 0)+1 from board), #{title}, #{content}, 'admin', sysdate, 0)
+    </insert>
+    <delete id="boardDelete">
+        delete from board where no=#{no}
+    </delete>
+    <update id="boardEdit">
+        update board set title=#{title}, content=#{content} where no=#{no}
+    </update>
+    <update id="countUp">
+        update board set visited=visited+1 where no=#{no}
+    </update>
 </mapper>

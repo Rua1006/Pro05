@@ -17,7 +17,7 @@ spring:
     open-in-view: false
 
 mybatis:
-  config: mybatis/mybatis.config
+  config: mybatis/mybatis-config.xml
   mapper-locations: mybatis/mappers/*.xml
 
 

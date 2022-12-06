@@ -2,32 +2,77 @@
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>반다이몰</title>
+</head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <header class="header">
   <th:block th:include="fragments/common/navbar"></th:block>
   <th:block th:include="fragments/common/sidebar"></th:block>
+  <style>
+        table{
+            margin: 0 auto;
+        }
+        .btn-block {
+          display: block;
+          width: 10%;
+        }
+    </style>
 </header>
-<div class="text-center">
-  <table>
-    <thead>
-    <tr>
-      <th width="80">No</th>
-      <th width="720">Title</th>
-      <th width="200">ResDate</th>
-      <!--<th width="200">Visited</th>-->
-    </tr>
-    </thead>
-    <tbody>
-      <tr th:each="board : ${boardList}">
-        <td th:text="${board.no }"></td>
-        <td>
-          <a th:href="@{/board/detail(no=${board.no })}" th:text="${board.title }"></a>
-        </td>
-        <td th:text="${board.resDate }"></td>
-        <!--<td th:text="${board.visited }"></td>-->
-      </tr>
-    </tbody>
-  </table>
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">공지사항 목록</h3>
+
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+            <tr>
+              <th>NO</th>
+              <th>Title</th>
+              <th>ResDate</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${boardList}">
+              <td th:text="${board.no}"></td>
+              <td>
+                <a th:href="@{/board/detail(no=${board.no })}" th:text="${board.title }"></a>
+              </td>
+              <td th:text="${board.resDate }"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+  <div class="button-group">
+    <a class="btn btn-block btn-primary" th:href="@{/board/insert}">글 작성하기</a>
+  </div>
+</div>
+</section>
 </div>
 </body>
 <footer class="footer">
