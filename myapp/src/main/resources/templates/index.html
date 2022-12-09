@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>반다이몰</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+		<!-- navbar -->
+		<th:block th:include="fragments/common/navbar"></th:block>
+		<!-- sidebar -->
+		<th:block th:include="fragments/common/sidebar"></th:block>
+		<!-- main -->
+		<th:block th:include="fragments/content/main"></th:block>
+		<!-- footer -->
+		<th:block th:include="fragments/common/footer"></th:block>
+	</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>반다이몰</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+  <h1>테스트 화면4</h1>
+  <ul th:object="${sample}">
+    <li th:text="*{id}"></li>
+    <li th:text="*{pw}"></li>
+  </ul>
+</body>
+</html>

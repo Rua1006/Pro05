@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>반다이몰</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<h1>테스트 화면8</h1>
+<table>
+  <tbody th:object="${sample}">
+    <tr>
+      <th>아이디</th>
+      <td>
+        <input type="text" th:value="${sample.id}" id="id" name="id">
+      </td>
+    </tr>
+    <tr>
+      <th>비밀번호</th>
+      <td>
+        <input type="password" th:value="${sample.pw}" id="pw" name="pw">
+      </td>
+    </tr>
+    <tr>
+      <th>성별 : </th>
+      <td>
+        <select th:field="${gender}" id="gender" name="gender">
+          <option th:value="'M'" th:text="Male"></option>
+          <option th:value="'F'" th:text="Female"></option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>성별2 : </th>
+      <td>
+        <select id="gender2" name="gender2">
+          <option value="">선택</option>
+          <option th:each="gender : ${genderList}" th:value="${gender}"></option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>성별3 : </th>
+      <td>
+        <div th:each="gender : ${genderList}">
+          <label th:text="${gender}"></label>
+          <th:block th:if="${gender} == 'M'">
+            <input type="radio" id="gender3_0" name="gender3" value="${gender}">
+          </th:block>
+          <th:block th:unless="${gender} == 'M'">
+            <input type="radio" id="gender3" name="gender3" value="${gender}">
+          </th:block>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
