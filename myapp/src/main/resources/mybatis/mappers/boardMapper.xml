@@ -11,7 +11,7 @@
         select count(*) from board
     </select>
     <insert id="boardInsert">
-        insert into board values((select nvl(max(no), 0)+1 from board), #{title}, #{content}, 'admin', sysdate, 0)
+        insert into board values(no, #{title}, #{content}, 'admin', now() )
     </insert>
     <delete id="boardDelete">
         delete from board where no=#{no}

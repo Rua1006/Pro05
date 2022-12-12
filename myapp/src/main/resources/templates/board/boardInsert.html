@@ -14,7 +14,7 @@
 </header>
 <div class="text-center">
     <h2>공지사항 작성하기</h2>
-    <form action="insert" th:object="${board/insert}" method="post" name="insert" id="insert">
+    <form   action="/board/insert" method="post" name="insert" id="insert">
         <table>
             <tbody>
             <tr>
@@ -26,16 +26,18 @@
             <tr>
                 <th>글 내용</th>
                 <td>
-                    <textarea placeholder="내용입력" rows="8" cols="10" maxlength="800" th:field="*{content}" id="content" name="content" required></textarea>
+                    <textarea placeholder="내용입력" rows="8" cols="10" maxlength="800" id="content" name="content" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" class="submit success button" value="등록">
+                    <a class="button" th:href="@{/board/list}">글 목록</a>
                 </td>
             </tr>
             </tbody>
         </table>
     </form>
-    <div class="button-group">
-        <input type="submit" class="submit success button" value="등록">
-        <a class="button" th:href="@{/board/list}">글 목록</a>
-    </div>
 </div>
 </body>
 <footer class="footer">

@@ -35,7 +35,7 @@ public class BoardController {
         return "/board/boardInsert";
     }
     @PostMapping("insert")
-    public String boardInsert(@ModelAttribute("board") HttpServletRequest request) throws Exception{
+    public String boardInsert(HttpServletRequest request, Model model) throws Exception{
         BoardDTO dto = new BoardDTO();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
