@@ -6,10 +6,7 @@ import com.shop.myapp.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -38,7 +35,7 @@ public class BoardController {
         return "/board/boardInsert";
     }
     @PostMapping("insert")
-    public String boardInsert(HttpServletRequest request, Model model) throws Exception{
+    public String boardInsert(@ModelAttribute("board") HttpServletRequest request) throws Exception{
         BoardDTO dto = new BoardDTO();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));

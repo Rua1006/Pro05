@@ -14,13 +14,13 @@
 </header>
 <div class="text-center">
     <h2>공지사항 작성하기</h2>
-    <form th:action="@{board/insert}" th:object="${boardDTO}" method="post" name="insert" id="insert">
+    <form action="insert" th:object="${board/insert}" method="post" name="insert" id="insert">
         <table>
             <tbody>
             <tr>
                 <th>글 제목</th>
                 <td>
-                    <input type="text" placeholder="제목입력" maxlength="90" th:field="*{title}" id="title" name="title" required>
+                    <input type="text" placeholder="제목입력" maxlength="90" id="title" name="title" required>
                 </td>
             </tr>
             <tr>
