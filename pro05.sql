@@ -17,6 +17,7 @@ create table member(
 );
 desc member;
 select * from member;
+insert into member(id, pw, name, email, tel, regdate) values("admin", 12345, "관리자", "admin@google.com", "010-2929-9292", now());
 
 
 

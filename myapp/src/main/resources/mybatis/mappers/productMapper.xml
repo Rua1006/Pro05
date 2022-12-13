@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+    <!-- 제품목록 -->
+    <select id="productList" resultType="com.shop.myapp.dto.ProductDTO">
+        select * from product order by prono
+    </select>
+    <!-- 제품정보 -->
+    <select id="getProduct" resultType="com.shop.myapp.dto.ProductDTO">
+        select a.prono, a.cateno, a.proname, a.prospec, a.oriprice, a.discountrate, a.propic, a.propic2, b.amount from product a right join wearing b on a.prono=b.prono where a.prono in (select b.prono from wearing) and a.prono=#{a.prono}
+    </select>
+    <!-- 카테고리별 제품목록 -->
+    <select id="productCateList" resultType="com.shop.myapp.dto.ProductDTO">
+        select * from product where cateno=#{cateno} order by prono
+    </select>
+    <!-- 제품정보수정 -->
+    <update id="productUpdate">
+        update product set cateno=#{cateno}, proname=#{proname}, prospec=#{prospec}, oriprice=#{oriprice}, discountrate=#{discountrate}, propic=#{propic}, propic2=#{propic2} where prono=#{prono}
+    </update>
+    <!-- 제품삭제 -->
+    <delete id="productDelete">
+        delete from product where prono=#{prono}
+    </delete>
+    <!-- 제품입고 -->
+    <update id="productWearing">
+        update wearing set amount=amount+#{amount} where prono=#{prono}
+    </update>
+    <!-- 제품등록 -->
+
+</mapper>

@@ -110,13 +110,13 @@ public class MemberController {
         return "member/loginForm";
     }
 
-    //로그인 	- 컨트롤러에서 세션 처리
+    //로그인 - 컨트롤러에서 세션 처리
     @RequestMapping(value="signin", method = RequestMethod.POST)
-    public String memberSignin(@RequestParam String id, @RequestParam String pw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+    public String memberSignin(@RequestParam(value = "id", required=false) String id, @RequestParam(value = "pw", required=false) String pw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
         session.invalidate();
         MemberDTO mdto = new MemberDTO();
-        mdto.setPw(pw);
         mdto.setId(id);
+        mdto.setPw(pw);
         MemberDTO login = memberService.signIn(mdto);
         boolean loginSuccess = pwdEncoder.matches(mdto.getPw(), login.getPw());
         if(loginSuccess && login!=null) {
