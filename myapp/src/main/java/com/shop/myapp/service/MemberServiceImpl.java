@@ -5,6 +5,10 @@ import com.shop.myapp.dto.MemberDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+<<<<<<< HEAD
+=======
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -18,7 +22,12 @@ public class MemberServiceImpl implements MemberService{
     @Autowired
     MemberDAO memberDao;
 
+<<<<<<< HEAD
 
+=======
+    @Inject
+    BCryptPasswordEncoder pwdEncoder;
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 
     @Override
     public List<MemberDTO> memberList() throws Exception {
@@ -41,6 +50,29 @@ public class MemberServiceImpl implements MemberService{
         return memberDao.signIn(mdto);
     }
 
+<<<<<<< HEAD
+=======
+    //서비스에서 로그인 처리
+    @Override
+    public boolean login(HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        boolean loginSuccess = false;
+        MemberDTO mdto = new MemberDTO();
+
+        mdto.setId(request.getParameter("id"));
+        mdto.setPw(request.getParameter("pw"));
+
+        MemberDTO login = memberDao.login(mdto);
+
+        loginSuccess =  pwdEncoder.matches(mdto.getPw(), login.getPw());
+        if(login != null && loginSuccess==true) {
+            session.setAttribute("member", login);
+            session.setAttribute("sid", login.getId());
+            loginSuccess = true;
+        }
+        return loginSuccess;
+    }
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 
     @Override
     public MemberDTO loginCheck(MemberDTO mdto) throws Exception {

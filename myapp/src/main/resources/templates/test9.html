@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<h1>태그로 묶지 않고 replace</h1>
+<th:block th:replace="test_hd"></th:block>
+
+<h1>태그로 묶어 replace</h1>
+<header th:replace="test_hd" id="hd3"></header>
+
+<h1>태그로 묶어 각 각의 fragment 로 replace</h1>
+<header id="hd4">
+  <th:block th:replace="test_hd :: logo"></th:block>
+  <th:block th:replace="test_hd :: gnb"></th:block>
+  <th:block th:replace="test_hd :: tnb"></th:block>
+</header>
+<hr>
+
+<h1>replace 의 fragment 매개변수에 의한 템플릿 불러오기</h1>
+<header id="hd5">
+  <div th:replace="test_hd :: dataParam('데이터1','데이터2')"></div>
+</header>
+</html>

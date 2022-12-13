@@ -6,10 +6,14 @@ import com.shop.myapp.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+=======
+import org.springframework.web.bind.annotation.*;
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;

@@ -17,6 +17,10 @@ create table member(
 );
 desc member;
 select * from member;
+<<<<<<< HEAD
+=======
+insert into member(id, pw, name, email, tel, regdate) values("admin", 12345, "관리자", "admin@google.com", "010-2929-9292", now());
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 
 
 

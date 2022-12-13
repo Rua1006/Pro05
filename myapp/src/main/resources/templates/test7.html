@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>반다이몰</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+  <h1>테스트 화면4</h1>
+    <table>
+      <thead>
+        <th>연번</th>
+        <th>아이디</th>
+        <th>비밀번호</th>
+        <th>기타 사항</th>
+        <th>건수</th>
+      </thead>
+      <tbody>
+        <tr th:each="sample, status : ${sampleList}">
+          <td th:text="${status.count}"></td>
+          <td th:text="${sample.id}"></td>
+          <td th:text="${sample.pw}"></td>
+          <th:block th:if="${sample.id} == 'admin'">
+            <td>관리자</td>
+          </th:block>
+          <th:block th:unless="${sample.id} == 'admin'">
+            <td>일반회원</td>
+          </th:block>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

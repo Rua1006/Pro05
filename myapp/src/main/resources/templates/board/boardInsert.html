@@ -7,6 +7,7 @@
     <th:block th:include="fragments/common/navbar"></th:block>
     <th:block th:include="fragments/common/sidebar"></th:block>
     <style>
+<<<<<<< HEAD
         table{
             margin: 0 auto;
         }
@@ -36,6 +37,51 @@
         <input type="submit" class="submit success button" value="등록">
         <a class="button" th:href="@{/board/list}">글 목록</a>
     </div>
+=======
+        table { margin: 0 auto; width:100%; }
+        th { text-align : center; }
+
+    </style>
+</header>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h2>공지사항 작성하기</h2>
+                </div>
+                <div class="card-body">
+                <form action="/board/insert" method="post" name="insert" id="insert">
+                    <div class="row">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>글 제목</th>
+                            <td>
+                                <input type="text" class="form-control" placeholder="제목입력" maxlength="90" id="title" name="title" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>글 내용</th>
+                            <td>
+                                <textarea placeholder="내용입력" class="form-control" rows="10" cols="10" maxlength="1000" id="content" name="content" required></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" class="btn btn-block btn-primary" value="등록">
+                                <a class="btn btn-block btn-danger" th:href="@{/board/list}">글 목록</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 </div>
 </body>
 <footer class="footer">

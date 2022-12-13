@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
+<<<<<<< HEAD
 
     <select id="memberList" resultType="com.shop.myapp.dto.MemberDTO">
         select * from member
     </select>
 
+=======
+    <!-- 회원목록   -->
+    <select id="memberList" resultType="com.shop.myapp.dto.MemberDTO">
+        select * from member
+    </select>
+    <!-- 회원정보   -->
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
     <select id="getMember" resultType="com.shop.myapp.dto.MemberDTO">
         select * from member where id=#{id}
     </select>

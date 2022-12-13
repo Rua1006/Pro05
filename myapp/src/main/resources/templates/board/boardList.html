@@ -17,7 +17,11 @@
         }
         .btn-block {
           display: block;
+<<<<<<< HEAD
           width: 10%;
+=======
+          width: 160px;
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
         }
     </style>
 </header>
@@ -47,14 +51,23 @@
           <table class="table table-hover text-nowrap">
             <thead>
             <tr>
+<<<<<<< HEAD
               <th>NO</th>
+=======
+              <th>No</th>
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
               <th>Title</th>
               <th>ResDate</th>
             </tr>
             </thead>
             <tbody>
+<<<<<<< HEAD
             <tr th:each="board : ${boardList}">
               <td th:text="${board.no}"></td>
+=======
+            <tr th:each="board, status : ${boardList}">
+              <td th:text="${status.count}"></td>
+>>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
               <td>
                 <a th:href="@{/board/detail(no=${board.no })}" th:text="${board.title }"></a>
               </td>
