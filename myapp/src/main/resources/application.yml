@@ -1,9 +1,5 @@
 server :
-<<<<<<< HEAD
   port : 8094
-=======
-  port : 8095
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
   servlet:
     context-path: /
     encoding:
@@ -19,15 +15,12 @@ spring:
     password: a1234
   jpa:
     open-in-view: false
-<<<<<<< HEAD
-=======
   thymeleaf:
     cache: false
   devtools:
     livereload:
       enabled: true
 
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 
 mybatis:
   config: mybatis/mybatis-config.xml

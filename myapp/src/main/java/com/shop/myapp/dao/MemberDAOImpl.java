@@ -40,14 +40,11 @@ public class MemberDAOImpl implements MemberDAO{
     }
 
     @Override
-<<<<<<< HEAD
-=======
     public MemberDTO login(MemberDTO mdto) throws Exception {
         return sqlSession.selectOne("member.login", mdto);
     }
 
     @Override
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
     public void memberUpdate(MemberDTO mdto) throws Exception {
         sqlSession.update("member.memberUpdate", mdto);
     }

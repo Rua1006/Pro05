@@ -12,16 +12,10 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-=======
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shop.myapp.dto.MemberDTO;
@@ -35,12 +29,9 @@ public class MemberController {
     @Autowired
     MemberService memberService;
 
-<<<<<<< HEAD
-=======
     @Inject
     BCryptPasswordEncoder pwdEncoder;
 
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
     @Autowired
     HttpSession session;
 
@@ -73,20 +64,14 @@ public class MemberController {
     @GetMapping("agree")
     public String getAgree(Model model) throws Exception {
         return "member/agree";
-<<<<<<< HEAD
-=======
-
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
     }
+
     //회원 가입 - 회원가입폼 페이지 로딩
     @GetMapping("join")
     public String getJoin(Model model) throws Exception {
         return "member/memberInsert";
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
     //회원 가입 - Ajax로 아이디 중복 체크
     @RequestMapping(value="idCheck", method=RequestMethod.POST)
     public void idCheck(HttpServletResponse response, HttpServletRequest request, Model model) throws Exception {
@@ -105,8 +90,7 @@ public class MemberController {
         PrintWriter out = response.getWriter();
         out.println(json.toString());
     }
-<<<<<<< HEAD
-=======
+
     //회원 가입 - 회원 가입 처리
     @RequestMapping(value="insert", method = RequestMethod.POST)
     public String memberWrite(MemberDTO member, Model model) throws Exception {
@@ -117,7 +101,7 @@ public class MemberController {
         memberService.memberInsert(member);
         return "redirect:/";
     }
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
+
 
     //로그인 폼 로딩
     @RequestMapping("loginForm")
@@ -125,25 +109,29 @@ public class MemberController {
         return "member/loginForm";
     }
 
-<<<<<<< HEAD
-=======
+
     //로그인 - 컨트롤러에서 세션 처리
     @RequestMapping(value="signin", method = RequestMethod.POST)
-    public String memberSignin(@RequestParam(value = "id", required=false) String id, @RequestParam(value = "pw", required=false) String pw, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+    public String memberSignin(MemberDTO mdto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
         session.invalidate();
-        MemberDTO mdto = new MemberDTO();
-        mdto.setId(id);
-        mdto.setPw(pw);
+//        System.out.println(mdto);
+//        MemberDTO mdto = new MemberDTO();
+//        mdto.setId(id);
+//        mdto.setPw(pw);
         MemberDTO login = memberService.signIn(mdto);
         boolean loginSuccess = pwdEncoder.matches(mdto.getPw(), login.getPw());
         if(loginSuccess && login!=null) {
             session.setAttribute("member", login);
-            session.setAttribute("sid", id);
+            session.setAttribute("sid", mdto.getId());
             return "redirect:/";
         } else {
+            session.setAttribute("sid", 1234);
             return "redirect:loginForm";
         }
     }
+
+
+
     //로그인 - Service에서 세션 처리
     @RequestMapping(value="login", method = RequestMethod.POST)
     public String memberLogin(MemberDTO mdto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
@@ -183,7 +171,7 @@ public class MemberController {
         return "redirect:/";
     }
 
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
+
     //회원 탈퇴
     @RequestMapping(value="delete", method = RequestMethod.GET)
     public String memberDelete(@RequestParam String id, Model model, HttpSession session) throws Exception {

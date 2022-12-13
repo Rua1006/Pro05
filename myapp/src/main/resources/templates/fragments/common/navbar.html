@@ -68,11 +68,7 @@
                         Contact
                     </a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-<<<<<<< HEAD
                         <li><a th:href="@{board/list}" class="dropdown-item">공지사항</a></li>
-=======
-                        <li><a th:href="@{../board/list}" class="dropdown-item">공지사항</a></li>
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
                         <li class="dropdown-divider"></li>
                         <li><a href="" class="dropdown-item">자유게시판</a></li>
                         <li class="dropdown-divider"></li>
@@ -94,29 +90,21 @@
         </div>
     </ul>
     <!-- Right navbar links -->
-<<<<<<< HEAD
-    <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        <li class="nav-item">
-            <a href="#" class="nav-link">회원가입</a>
-        </li>
-        <li class="nav-item">
-            <a th:href="@{member/loginForm}" class="nav-link">로그인</a>
-        </li>
-=======
     <ul class="navbar-nav ml-auto" >
         <!-- Navbar Search -->
-        <li class="nav-item">
-            <a th:href="@{../member/agree}" class="nav-link">회원가입</a>
-        </li>
-        <li class="nav-item">
-            <a th:href="@{../member/loginForm}" class="nav-link">로그인</a>
-        </li>
-        <!-- <li class="nav-item">
-             <a th:href="@{../member/logOut}" th:if="${not#strings.isEmpty(sid.id)}" class="nav-link">로그아웃</a>
-        </li>-->
-
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
+        <th:block th:if="${#strings.isEmpty(sid)}">
+            <li class="nav-item">
+                <a th:href="@{../member/agree}" class="nav-link">회원가입</a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{../member/loginForm}" class="nav-link">로그인</a>
+            </li>
+        </th:block>
+        <th:blcok th:unless="${#strings.isEmpty(sid)}">
+            <li class="nav-item">
+                <a th:href="@{../member/logOut}"  class="nav-link">로그아웃</a>
+            </li>
+        </th:blcok>
     </ul>
 <!-- /.navbar -->
     </div>

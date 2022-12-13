@@ -2,15 +2,9 @@ package com.shop.myapp.service;
 
 import com.shop.myapp.dao.MemberDAO;
 import com.shop.myapp.dto.MemberDTO;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
-<<<<<<< HEAD
-=======
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 import org.springframework.stereotype.Service;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,12 +16,10 @@ public class MemberServiceImpl implements MemberService{
     @Autowired
     MemberDAO memberDao;
 
-<<<<<<< HEAD
 
-=======
     @Inject
     BCryptPasswordEncoder pwdEncoder;
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
+
 
     @Override
     public List<MemberDTO> memberList() throws Exception {
@@ -50,8 +42,6 @@ public class MemberServiceImpl implements MemberService{
         return memberDao.signIn(mdto);
     }
 
-<<<<<<< HEAD
-=======
     //서비스에서 로그인 처리
     @Override
     public boolean login(HttpServletRequest request) throws Exception {
@@ -72,7 +62,6 @@ public class MemberServiceImpl implements MemberService{
         }
         return loginSuccess;
     }
->>>>>>> 9174528b32d015711b6f045e1a44f86a13fd6909
 
     @Override
     public MemberDTO loginCheck(MemberDTO mdto) throws Exception {
