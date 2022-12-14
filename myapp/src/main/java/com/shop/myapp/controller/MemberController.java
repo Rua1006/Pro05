@@ -114,7 +114,7 @@ public class MemberController {
     @RequestMapping(value="signin", method = RequestMethod.POST)
     public String memberSignin(MemberDTO mdto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
         session.invalidate();
-//        System.out.println(mdto);
+        System.out.println(mdto);
 //        MemberDTO mdto = new MemberDTO();
 //        mdto.setId(id);
 //        mdto.setPw(pw);
@@ -125,7 +125,6 @@ public class MemberController {
             session.setAttribute("sid", mdto.getId());
             return "redirect:/";
         } else {
-            session.setAttribute("sid", 1234);
             return "redirect:loginForm";
         }
     }
@@ -161,7 +160,6 @@ public class MemberController {
             return "redirect:loginForm";
         }
     }
-
     //회원 정보 변경
     @RequestMapping(value="update", method = RequestMethod.POST)
     public String memberUpdate(MemberDTO mdto, Model model) throws Exception {
@@ -170,8 +168,6 @@ public class MemberController {
         memberService.memberUpdate(mdto);
         return "redirect:/";
     }
-
-
     //회원 탈퇴
     @RequestMapping(value="delete", method = RequestMethod.GET)
     public String memberDelete(@RequestParam String id, Model model, HttpSession session) throws Exception {
@@ -179,7 +175,6 @@ public class MemberController {
         session.invalidate();
         return "redirect:/";
     }
-
     //로그아웃
     @RequestMapping("logout")
     public String memberLogout(HttpSession session) throws Exception {

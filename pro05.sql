@@ -1,9 +1,10 @@
 create database shop;
 use shop;
 
+drop table member;
 create table member(
 	id varchar(30) primary key,
-    pw varchar(30) not null,
+    pw varchar(1000) not null,
     name varchar(30) not null,
     email varchar(100),
     tel varchar(50),
@@ -17,8 +18,9 @@ create table member(
 );
 desc member;
 select * from member;
-insert into member(id, pw, name, email, tel, regdate) values("admin", 12345, "관리자", "admin@google.com", "010-2929-9292", now());
-
+insert into member(id, pw, name, email, tel, regdate) values("admin", "$2a$10$z4y2Wtl7gFRX79ww1iZF5u1g2P1x6v.Di5P6QhYlHdRaDQnZxjG7q", "관리자", "admin@google.com", "010-2929-9292", now());
+insert into member(id, pw, name, email, tel, regdate) values("bskang", "$2a$10$z4y2Wtl7gFRX79ww1iZF5u1g2P1x6v.Di5P6QhYlHdRaDQnZxjG7q", "강병수", "kbs@google.com", "010-2929-9292", now());
+update member set pw="$2a$10$z4y2Wtl7gFRX79ww1iZF5u1g2P1x6v.Di5P6QhYlHdRaDQnZxjG7q" where id="admin";
 
 
 create table board(
