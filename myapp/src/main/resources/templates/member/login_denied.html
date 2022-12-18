@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>로그인 실패</title>
+</head>
+<body>
+<div class="fluid-container">
+    <th:block th:include="fragments/common/navbar"></th:block>
+    <th:block th:include="fragments/common/sidebar"></th:block>
+    <div class="py-5">
+        <div class="container px-5 my-5">
+            <div class="text-center mb-5">
+                <h1 class="fw-bolder">로그인 실패</h1>
+            </div>
+            <div class="row gx-5">
+                <div class="col-xl-12">
+                    <h2>아이디 또는 비밀번호가 틀렸습니다.</h2>
+                    <div th:text="${info}"></div>
+                    <a class="btn btn-primary inline" href="@{/member/login}">로그인 페이지로</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="fragments/common/footer"></th:block>
+</div>
+</body>
+</html>

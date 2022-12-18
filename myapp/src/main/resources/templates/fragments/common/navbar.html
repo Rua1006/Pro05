@@ -92,27 +92,14 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto" >
         <!-- Navbar Search -->
-            <li class="nav-item">
-                <a th:href="@{../member/agree}" class="nav-link">회원가입</a>
-            </li>
-            <li class="nav-item">
-                <span class="text-black" sec:authentication="name">사용자</span>
-                <a th:href="@{../member/loginForm}" sec:authorize="isAnonymous()" class="nav-link">로그인</a>
-                <a th:href="@{../member/logout}" sec:authorize="isAuthenticated()" class="nav-link">로그아웃</a>
-            </li>
-     <!--   <th:blcok th:unless="${#strings.isEmpty(sid)}">
-            <li class="nav-item">
-                <a th:href="@{../member/logout}" sec:authorize="isAuthenticated()" class="nav-link">로그아웃</a>
-            </li>
-            <li class="nav-item">
-                <a th:href="@{../member/read}"  class="nav-link">회원정보</a>
-            </li>
-        </th:blcok>
-        <th:block th:if="${#strings.equals('admin')}">
-            <li class="nav-item">
-                <a th:href="@{../admin/index}"  class="nav-link">관리자페이지</a>
-            </li>
-        </th:block>-->
+        <li class="nav-item">
+            <a th:href="@{../member/agree}" class="nav-link">회원가입</a>
+        </li>
+        <li class="nav-item">
+
+            <a th:href="@{../member/loginForm}" sec:authorize="!isAuthenticated()" class="nav-link">로그인</a>
+            <a th:href="@{../member/logout}" sec:authorize="isAuthenticated()" class="nav-link">로그아웃</a>
+        </li>
     </ul>
 <!-- /.navbar -->
     </div>

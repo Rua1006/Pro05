@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>로그인 성공</title>
+	<th:block th:insert="common/head"></th:block>
+</head>
+<body>
+<div class="fluid-container">
+	<th:block th:insert="common/header"></th:block>
+	<div class="py-5">
+		<div class="container px-5 my-5">
+			<div class="text-center mb-5">
+                <h1 class="fw-bolder">로그인 성공</h1>
+			</div>
+			<div class="row gx-5">
+                <div class="col-xl-12">
+					<h2>회원님 안녕하세요</h2>
+					<div th:text="${info}"></div>
+                	<a class="btn btn-primary inline" href="/">메인으로</a>
+                </div>
+            </div>
+		</div>
+  	</div>
+	<th:block th:insert="common/footer"></th:block>
+</div>
+</body>
+</html>

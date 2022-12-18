@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>회원정보 수정</title>
+	<th:block th:insert="common/head"></th:block>
+</head>
+<body>
+<div class="fluid-container">
+	<th:block th:insert="common/header"></th:block>
+	<div class="py-5">
+		<div class="container px-5 my-5">
+			<div class="text-center mb-5">
+                <h1 class="fw-bolder">회원정보 수정</h1>
+			</div>
+			<div class="row gx-5">
+                <div class="col-xl-12">
+                     <form th:action="@{/member/update}" th:object="${member}" method="post">              
+	                    <table class="table">
+	                    	<tbody>
+		                        <tr>
+		                        	<th><label for="userId">사용자 아이디</label></th>
+		                            <td>
+		                            	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		                            	<input type="text" class="form-control" id="userId" th:field="*{userId}" name="userId" th:readonly="readonly">
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                        	<th><label for="userName">이름</label></th>
+		                            <td>
+		                            	<input type="text" class="form-control" id="userName" th:field="*{userName}" name="userName">
+		                            </td>
+		                        </tr>
+		                        <tr>
+		                        	<th><label for="userPw">비밀번호</label></th>
+		                            <td>
+		                            	<input type="password" class="form-control" id="userPw" th:field="*{userPw}" name="userPw">
+		                            </td>
+		                        </tr>
+	                    	</tbody>
+	                    </table>
+		                <div class="container" role="group">
+		                	<input type="submit" class="btn btn-danger inline" value="회원정보 수정" />
+		                </div>
+                     </form>
+                </div>
+            </div>
+		</div>
+  	</div>
+	<th:block th:insert="common/footer"></th:block>
+</div>
+</body>
+</html>

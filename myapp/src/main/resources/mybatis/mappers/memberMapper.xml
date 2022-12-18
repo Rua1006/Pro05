@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="member">
-    <!-- 회원목록   -->
-    <select id="memberList" resultType="com.shop.myapp.dto.MemberDTO">
-        select * from member
-    </select>
-    <!-- 회원정보   -->
-    <select id="getMember" resultType="com.shop.myapp.dto.MemberDTO">
-        select * from member where id=#{id}
-    </select>
-
-    <select id="signIn" resultType="com.shop.myapp.dto.MemberDTO">
-        select * from member where id = #{id }
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.myapp.dao.MemberMapper">
+    <!-- 로그인 -->
+    <select id="getUserAccount" resultType="com.shop.myapp.dto.MemberDTO">
+        SELECT * FROM TB_USER
+        WHERE USER_ID= #{userId}
     </select>
 
-    <select id="loginCheck" resultType="com.shop.myapp.dto.MemberDTO">
-        select id, pw, name from member where id = #{id }
-    </select>
-
-    <select id="login" resultType="com.shop.myapp.dto.MemberDTO">
-        select id, pw, name from member where id = #{id }
-    </select>
-
-    <insert id="memberInsert">
-        insert into member values (#{id}, #{pw}, #{name}, #{email}, #{tel}, #{addr1}, #{addr2}, #{postcode}, sysdate, #{birth}, 0, 0)
+    <!-- 회원가입 -->
+    <insert id="saveUser" parameterType="com.shop.myapp.dto.MemberDTO">
+        INSERT INTO TB_USER
+        (USER_ID, USER_PW, USER_NAME, USER_AUTH, APPEND_DATE, UPDATE_DATE)
+        VALUES(#{userId},#{userPw},#{userName},#{userAuth},#{appendDate},#{updateDate})
     </insert>
 
-    <update id="memberUpdate">
-        update member set pw=#{pw }, name=#{name }, email=#{email }, tel=#{tel },
-        addr1=#{addr1 }, addr2=#{addr2 }, postcode=#{postcode } where id = #{id }
+    <!-- 회원 정보 수정 -->
+    <update id="updateUser" parameterType="com.shop.myapp.dto.MemberDTO">
+        UPDATE TB_USER SET
+        USER_PW=#{userPw}, USER_NAME=#{userName}
+        WHERE USER_ID=#{userId}
     </update>
-
-    <delete id="memberDelete">
-        delete from member where id=#{id }
-    </delete>
 </mapper>
