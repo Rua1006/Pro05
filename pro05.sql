@@ -1,8 +1,6 @@
 create database shop;
 use shop;
 
-drop table member;
-
 create table member(
 id varchar(20) primary key,
 pw varchar(300) not null, 
@@ -48,6 +46,8 @@ delete from member where id ="admin";
 select * from TB_USER;
 commit;
 
+
+
 create table board(
 	no int primary key auto_increment,
 	title varchar(100) not null,
@@ -62,6 +62,22 @@ insert into board(title, content, author) values ("테스트3","테스트3내용
 insert into board(title, content, author) values ("테스트4","테스트4내용","dmin");
 select * from board;
 
+
+create table product(
+	proNo int primary key auto_increment,
+    cateNo int not null,
+    proName varchar(30) not null,
+    oriPrice int,
+    discount double,
+    proSpec varchar(300),
+    proPic varchar(1000),
+    proPic2 varchar(1000),
+    amount int
+);
+
+desc product;
+select * from product;
+alter table product add amount int;
 
 create table item(
 	id int primary key,
