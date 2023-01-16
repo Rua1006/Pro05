@@ -1,6 +1,16 @@
 create database shop;
 use shop;
 
+create table board2(
+	bno bigint primary key auto_increment,
+    title varchar(100) not null,
+    content varchar(1000) not null,
+    writer varchar(50) not null,
+    regdate datetime default now(),
+    moddate datetime default now()
+);
+
+
 create table member(
 id varchar(20) primary key,
 pw varchar(300) not null, 
