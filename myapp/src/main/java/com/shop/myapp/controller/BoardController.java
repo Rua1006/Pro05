@@ -3,6 +3,7 @@ package com.shop.myapp.controller;
 
 import com.shop.myapp.dto.BoardDTO;
 import com.shop.myapp.service.BoardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/board/")
 public class BoardController {
 
-    @Autowired
-    private BoardService boardService;
+
+    private final BoardService boardService;
 
     @GetMapping("list")
     public String getBoardList(Model model) throws Exception{
