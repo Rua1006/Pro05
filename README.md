@@ -18,8 +18,13 @@
 ### 💻 기술 스택
 - 백엔드
     - MyBatis
+    - JPA (변경중)
+    - SpringBoot
 - 프론트엔드<br>
-    - HTML, CSS, BootStrap, thymeleaf
+    - HTML
+    - CSS
+    - BootStrap
+    - thymeleaf
 - DB<br>
     - MySQL
 
