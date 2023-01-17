@@ -40,7 +40,7 @@
 <img src="./readmeImg/pro05ERD.png">
 
 ### 📜 메뉴 구성
-
+<img src="./readmeImg/menu.png">
 
 ### 📟 시퀸스 로직
 - 
@@ -70,9 +70,13 @@
   <img src="./readmeImg/freeUpdate.png">
 - 상품
   - 목록
+  <img src="./readmeImg/productList.png">
   - 자세히
+  <img src="./readmeImg/productDetail.png">
   - 등록
+  <img src="./readmeImg/productInsert.png">
   - 수정
+  <img src="./readmeImg/productUpdate.png">
 
 ### 🕹 구현 기능 (작성중)
 - 공지사항 및 게시글 CRUD
